@@ -1,0 +1,4 @@
+\beamer@endinputifotherversion {3.26pt}
+\beamer@sectionintoc {1}{Scripts}{2}{0}{1}
+\beamer@sectionintoc {2}{Git使用}{9}{0}{2}
+\beamer@sectionintoc {3}{程序书写}{17}{0}{3}
