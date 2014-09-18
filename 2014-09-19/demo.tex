@@ -122,8 +122,12 @@
 \subsection{Git的诞生}
 
 \begin{frame}
-  同生活中的许多伟大事件一样，Git 诞生于一个极富纷争大举创新的年代。Linux 内核开源项目有着为数众广的参与者。绝大多数的 Linux 内核维护工作都花在了提交补丁和保存归档的繁琐事务上（1991－2002年间）。到 2002 年，整个项目组开始启用分布式版本控制系统   BitKeeper 来管理和维护代码。\\
-  到了 2005 年，开发 BitKeeper 的商业公司同 Linux 内核开源社区的合作关系结束，他们收回了免费使用 BitKeeper 的权力。这就迫使 Linux 开源社区（特别是 Linux 的缔造者 Linus Torvalds ）不得不吸取教训，只有开发一套属于自己的版本控制系统才不至于重蹈覆辙。
+  \begin{itemize}
+  \item 1991-2002年间，世界各地的志愿者把源代码文件通过diff的方式发给Linus，然后由Linus本人通过手工方式合并代码！
+  \item 到2002年，整个项目组开始启用分布式版本控制系统BitKeeper来管理和维护代码。
+  \item 到了2005年，开发BitKeeper的商业公司同Linux内核开源社区的合作关系结束，他们收回了免费使用BitKeeper的权力。这就迫使 Linux开源社区不得不吸取教训，只有开发一套属于自己的版本控制系统才不至于重蹈覆辙。
+  \item Linus花了两周时间自己用C写了一个分布式版本控制系统，这就是Git！一个月之内，Linux系统的源码已经由Git管理了！
+  \end{itemize}
 \end{frame}
 
 \section{Git使用}
@@ -152,16 +156,11 @@
 \subsection{Github}
 
 \begin{frame}
-  \frametitle{Github}
+  \frametitle{Git的杀手级功能之一：远程仓库}
+  \zhushadow{服务器} 找一台电脑充当服务器的角色，每天24小时开机，其他每个人都从这个“服务器”仓库克隆一份到自己的电脑上，并且各自把各自的提交推送到服务器仓库里，也从服务器仓库中拉取别人的提交。
   \zhushadow{Github} Github是一个共享虚拟主机服务，用于存放使用Git版本控制的软件代码和内容项目。
 \end{frame}
 
-
-\begin{frame}
-  \begin{tcolorbox}[colback=blue!15,colframe=blue!75!black]  
-  My box with my title.    My box with my title.    My box with my title.  
-  \end{tcolorbox}
-\end{frame}
 
 \subsection{My Project}
 
@@ -171,6 +170,14 @@
 \end{frame}
 
 \subsection{分支管理}
+
+\begin{frame}
+  \frametitle{Git的杀手级功能之二：分支模型}
+  \zhushadow{分支} 每次提交，Git都把它们串成一条时间线，这条时间线就是一个分支。
+
+  \zhushadow{应用场景} 假设你准备开发一个新功能，但是需要两周才能完成，如果代码还没写完就提交，不完整的代码库会导致别人无法工作，如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。
+\end{frame}
+
 
 \begin{frame}
   \frametitle{创建与合并分支}
@@ -192,6 +199,7 @@
 
 \begin{frame}
   \frametitle{创建与合并分支}
+  \begin{tcolorbox}[colback=blue!15,colframe=blue!75!black]  
   \begin{itemize}
   \item 查看分支：git branch
   \item 创建分支：git branch name
@@ -200,6 +208,30 @@
   \item 合并某分支到当前分支：git merge name
   \item 删除分支：git branch -d name
   \end{itemize}
+  \end{tcolorbox}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{分支管理策略}
+  \begin{itemize}
+  \item master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面工作。
+  \item dev分支是不稳定的，平时在dev分支上工作，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本。
+  \item 团队中的每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并。
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \vspace{2cm}
+  \centering
+  \zhushadow{\color{blue}\Huge{Thanks}}\\
+  \vspace{1.5cm}
+  \begin{flushright}
+  \emph{\href{mailto:bingzh@ouc.edu.cn}{Yafei~Zhu}}\\
+  \href{http://www.ouc.edu.cn}{Ocean University of China}\\
+  \emph{2014.09}
+  \end{flushright}  
 \end{frame}
 
 
