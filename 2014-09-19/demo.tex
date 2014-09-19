@@ -9,8 +9,10 @@
 \usepackage{colortbl,dcolumn}     %% 彩色表格
 \usepackage{styles/zhfontcfg}
 \usepackage{styles/iplouclistings}
+\usepackage{listings}
 \usepackage{styles/iplouccfg}
 \usepackage{fancybox}     %% 定义zhushadow时用到
+\usepackage{verbatim}
 %%------------------------ThemeColorFont------------------------
 \usetheme{Madrid}
 \usecolortheme{whale}      % Outer color themes, 其他选择: whale, seahorse, dolphin . 换一个编译看看有什么不同.
@@ -43,7 +45,7 @@
 %% the beginning of each subsection:
 \AtBeginSection[]{                              % 在每个Section前都会加入的Frame
   \frame<handout:0>{
-    \frametitle{Contents}\small
+    \frametitle{Agenda}\small
     \tableofcontents[current,currentsubsection]
   }
 }
@@ -52,21 +54,23 @@
 {
   \frame<handout:0>                             % handout:0 表示只在手稿中出现
   {
-    \frametitle{Contents}\small
+    \frametitle{Agenda}\small
     \tableofcontents[current,currentsubsection] % 显示在目录中加亮的当前章节
   }
 }
 
 %%----------------------------------------------------------
-\title{开源软件之————git学习篇}
+\title{开源软件之——git学习篇}
 \author[zhu]{主讲人~~~~~\textcolor{olive}{朱亚菲}\\
-    \quad 幻灯片制作~~\textcolor{olive}{朱亚菲}}
-\institute[中国海洋大学]{\small\textcolor{violet}{中国海洋大学~~信息科学与工程学院}}
-\date{2014~年~9~月~19~日}
+    \quad 幻灯片制作~~\textcolor{olive}{赵海伟、朱亚菲}}
+\institute[CVBIOUC]{\small\textcolor{violet}{CVBIOUC\\
+\url{http://vision.ouc.edu.cn/~zhenghaiyong}}}
+\date{2014~年~9~月~19~日} 
 %\titlegraphic{\vspace{-6em}\includegraphics[height=7cm]{ouc}\vspace{-6em}}
 \frame{ \titlepage }
 %%----------------------------------------------------------
 
+\frame{\frametitle{Contents}\tableofcontents}
 
 %%----------------------------------------------------------
 \section{Git简介}
@@ -76,14 +80,18 @@
 \begin{frame}
   \zhushadow{Git} Git是目前世界上最先进的分布式版本控制系统！
 
+\pause
+
   \zhushadow{版本控制} 
-  \begin{figure}
-    \begin{minipage}[t]{0.25\linewidth} 
-    \leftline{\includegraphics[width=\linewidth]{word.png}}
-  \end{minipage}
-  \hspace{1cm}
-  \begin{minipage}[t]{0.1\linewidth} 
-    \rowcolors[]{1}{blue!20}{blue!10}
+
+  \begin{columns}
+  \begin{column}{0.3\textwidth} 
+  \includegraphics[width=\linewidth]{word.png}
+  \end{column}
+  \hspace{-7em}
+  \begin{column}{0.1\textwidth} 
+  \begin{flushleft}
+  \centering\rowcolors[]{1}{blue!20}{blue!10}
   \resizebox{3\hsize}{!}{$\begin{tabular}{|c|c|c|c|c|}  
   \hline
   版本 & 用户  &        说明            &    日期       \\
@@ -97,8 +105,12 @@
     4  & 李四  &   新增一种绘图颜色      &  7/14 15:17   \\
   \hline 
   \end{tabular}$}
-  \end{minipage}
-  \end{figure}
+  \end{flushleft}
+  \vspace{2em}
+  \end{column}
+  \end{columns}
+
+\pause
 
   \zhushadow{集中式vs分布式} 
   \begin{figure}
@@ -109,12 +121,11 @@
     {\heiti\textcolor{blue}{集中式}}
   \end{minipage}
   \hspace{2cm}
-  \begin{minipage}[t]{0.2\linewidth} 
+  \begin{minipage}[t]{0.2\linewidth}
     \centering 
     \includegraphics[width=\linewidth]{分布式.png} \\
     {\heiti\textcolor{blue}{分布式}}
   \end{minipage}
-\\
 \end{figure}
 \end{frame}
 
@@ -132,26 +143,93 @@
 
 \section{Git使用}
 
-\begin{frame}
-  \frametitle{Prearrange}
-  \flushleft
-  \begin{enumerate}
+\begin{frame}[fragile]
+  \frametitle{使用Git前的准备工作}
+  \begin{itemize}
   \item 安装
   \item 设置
-  \newline
+
+  \verb|$git config --global user.name "Your Name"|\\
+  \verb|$git config --global user.email "email@example.com"|
+  \item 创建版本库
+
+  \hspace{0.2em}\vspace{1em}\includegraphics[width=5cm]{repository.png}
+  \end{itemize}
+\end{frame}
+
+
+%\begin{frame}[fragile]
+%  \begin{lstlisting}
+%  $git config --global user.name "Your Name"
+%  $git config --global user.email "email@example.com"
+%  \end{lstlisting}
+%  \verb|$git config --global user.name "Your Name"|
+%  \\
+%  \verb|$git config --global user.email "email@example.com"|
+%\end{frame}
+
+%\begin{frame}[fragile]
+%\frametitle{}
+%\only<1>{
+%\begin{center}
+%\fbox{\$git log --pretty=oneline FileName}
+%\\
+%\includegraphics[width=5cm]{log.png}
+%\end{center}
+%}
+%\only<2>{
+%\begin{center}
+%\fbox{\$git show aa31c}
+%\\
+%\includegraphics[width=5cm]{gitshow.png}
+%\end{center}
+%}
+%\end{frame}
+
+%\begin{frame}[fragile]
+%\frametitle{}
+%\begin{columns}
+%\column{0.6\textwidth}
+%\verb|$git log --pretty=oneline FileName|
+%\\
+%\includegraphics[width=5cm]{log.png}
+%\column{0.4\textwidth}
+%\verb|$git show aa31c|
+%\\
+%\includegraphics[width=5cm]{gitshow.png}
+%\end{columns}
+%\end{frame}
+
+
+\begin{frame}
+  \frametitle{查看某个文件的修改历史}
+  \begin{tcolorbox}[colback=blue!5,colframe=blue!75!black] 
+  \begin{columns}
+  \begin{column}{0.5\textwidth}
+  \begin{center}
   \begin{tabular}{|l|}
   \hline
-  \$git config --global user.name ``Your Name" \\
-  \$git config --global user.email ``email@example.com"\\
+  \$git log --pretty=oneline 文件名\\
   \hline
   \end{tabular}
-  \item 创建版本库
-  \begin{figure}[h]
-  %\centering
-  \centerline{\includegraphics[width=5cm]{repository.png}}
-  \end{figure}
-  \end{enumerate}
+  \includegraphics[width=5cm]{log.png}
+  \end{center}
+  \end{column}
+
+  \begin{column}{0.5\textwidth}
+  \begin{center}
+  \begin{tabular}{|l|}
+  \hline
+  \$git show aa31c\\
+  \hline
+  \end{tabular}
+  \includegraphics[width=5cm]{gitshow.png}
+  \end{center}
+  \end{column}
+  \end{columns}
+  \end{tcolorbox}
 \end{frame}
+
 
 \subsection{Github}
 
@@ -166,8 +244,15 @@
 
 \begin{frame}
   \frametitle{My Project}
-  
+  \centering\includegraphics[width=10cm]{saliency.png}
 \end{frame}
+
+
+\begin{frame}
+  \frametitle{README}
+  \centering\includegraphics[width=10cm]{readme.png}
+\end{frame}
+
 
 \subsection{分支管理}
 
@@ -182,18 +267,35 @@
 \begin{frame}
   \frametitle{创建与合并分支}
   \begin{center}
-  \includegraphics[width=0.2\linewidth]{1.png}
-  \hspace{0.5em}
-  \includegraphics[width=0.2\linewidth]{2.png}
-  \hspace{0.5em}
-  \includegraphics[width=0.2\linewidth]{3.png}
-  \hspace{0.5em}
-  \includegraphics[width=0.2\linewidth]{4.png}
+  \includegraphics[width=0.24\linewidth]{1.png}
+  \hspace{0.3em}
+  \includegraphics[width=0.24\linewidth]{2.png}
+  \hspace{0.3em}
+  \includegraphics[width=0.24\linewidth]{3.png}
+  \hspace{0.3em}
+  \includegraphics[width=0.24\linewidth]{4.png}
   \end{center}
   \begin{figure}[h]
   \centering
   \centerline{\includegraphics[width=5cm]{5.png}}
   \end{figure}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{HEAD}
+  \begin{itemize}
+  \item HEAD文件是一个指向你当前所在分支的引用标识符。
+  \begin{lstlisting}
+  $cat .git/HEAD 
+  ref: refs/heads/master
+  \end{lstlisting}
+  \item 如果你执行git checkout dev, Git就会更新这个文件：
+  \begin{lstlisting}
+  $cat .git/HEAD 
+  ref: refs/heads/dev
+  \end{lstlisting}
+  \end{itemize}
 \end{frame}
 
 
@@ -218,6 +320,17 @@
   \item master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面工作。
   \item dev分支是不稳定的，平时在dev分支上工作，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本。
   \item 团队中的每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并。
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Bug分支}
+  \zhushadow{应用场景} 当你接到修复代号100的bug的任务时，很自然地，你想创建一个分支issue-100来修复它，但是当前正在dev分支上进行的工作还没有提交，并不是你不想提交，而是工作只进行到一半，还没法提交，预计完成还需1天时间，但是必须在两个小时内修复该bug。
+  
+  \begin{itemize}
+  \item 使用git stash命令把当前工作现场“储藏”起来，等以后恢复现场后继续工作。
+  
   \end{itemize}
 \end{frame}
 

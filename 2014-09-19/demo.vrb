@@ -1,0 +1,13 @@
+\frametitle{HEAD}
+  \begin{itemize}
+  \item HEAD文件是一个指向你当前所在分支的引用标识符。
+  \begin{lstlisting}
+  $cat .git/HEAD
+  ref: refs/heads/master
+  \end{lstlisting}
+  \item 如果你执行git checkout dev, Git就会更新这个文件：
+  \begin{lstlisting}
+  $cat .git/HEAD
+  ref: refs/heads/dev
+  \end{lstlisting}
+  \end{itemize}
