@@ -94,28 +94,6 @@
 
 
 \begin{frame}
-  \begin{figure}[!ht]
-  \begin{minipage}[t]{0.2\textwidth}
-  \centering
-  \includegraphics[height=1in]{1.jpg}
-  \end{minipage}
-  \begin{minipage}[t]{0.2\textwidth}
-  \centering
-  \includegraphics[height=1in]{2.jpg}
-  \end{minipage}
-  \begin{minipage}[t]{0.2\textwidth}
-  \centering
-  \includegraphics[height=1in]{3.jpg}
-  \end{minipage}
-  \begin{minipage}[t]{0.2\textwidth}
-  \centering
-  \includegraphics[height=1in]{4.jpg}
-  \end{minipage}
-  \end{figure}  
-\end{frame}
-
-
-\begin{frame}
   \zhushadow{赤潮} 在特定的环境条件下，海水中某些浮游植物、原生动物或细菌爆发性增殖或高度聚集而引起水体变色的一种有害生态现象。
 
   \zhushadow{危害}
@@ -159,7 +137,7 @@
 \begin{frame}
   \frametitle{基于图像技术的藻类监测方法}
   \begin{enumerate}
-  \item 图像采集方面
+  \item 图像采集方面：海水取样$\to$现场实时采集
   \item 图像识别方面
   \end{enumerate}
   \zhushadow{存在的缺陷}
@@ -174,7 +152,21 @@
 
 \begin{frame}
   \frametitle{改进}
-  
+  \begin{itemize}
+  \item 以41种中国海常见有害赤潮藻为研究对象
+  \item 将41种藻分为四大类，研究不同藻种显微图像的细胞目标分割方法
+  \item 利用藻类的生物形态分类特征角毛、横纵沟、尖顶刺等
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{拟解决的关键科学问题}
+  \begin{itemize}
+  \item 保留角毛细节特征的角毛藻细胞目标分割
+  \item 基于生物形态特征的图像细胞目标形状和细节（如甲板排列、突起特征、群体连接等）特征提取及表示
+  \item 针对大量类别高维特征的模式识别
+  \end{itemize}
 \end{frame}
 
 
@@ -182,36 +174,36 @@
 \centering\includegraphics[width=0.5\textwidth]{流程图.png}
 \end{frame}
 
-\section{实验室工作基础}
+%\section{实验室工作基础}
 
-\begin{frame}
-   \frametitle{各年级相关工作}
-   \begin{table}
-   \resizebox{0.8\hsize}{!}{$
-   \centering
-   \begin{tabular}{|c|c|c|}
-   \hline 
-   年级&姓名&课题 \\  
-   \hline
-   &史珊珊&基于分形理论的浮游植物显微图像识别研究\\ \cline{2-3} 
-   2009级&宋丽娜&基于多小波理论的浮游植物图像处理研究 \\ \cline{2-3}
-   &郑海永&基于生物形态学的有害赤潮藻显微图像诊断研究\\
-   \hline 
-   &吕梁 &有害赤潮数据采集与诊断系统的设计与实现\\ \cline{2-3} 
-   2010级&袁鹏&无角毛有害赤潮藻显微图像自动识别系统 \\ \cline{2-3}
-   &乔小燕&基于生物形态学的赤潮藻显微图像分割与特征提取研究\\
-   \hline
-   &鲍珊娟 &基于分形方法的有害赤潮显微图像识别研究\\ \cline{2-3} 
-   2011级&姜晓玲&基于变分水平集的赤潮藻显微图像分割方法研究 \\ \cline{2-3}
-   &郭春锋&中国海常见有害赤潮藻显微图像识别研究\\
-   \hline
-   2012级&张寒清&有害赤潮藻显微图像自动识别研究 \\
-   \hline
-   2013级&楚晶晶&基于显著区域检测和分水岭的无角毛类藻显微图像分割研究 \\
-   \hline
-   \end{tabular}$} 
-   \end{table}
-\end{frame}
+%\begin{frame}
+%   \frametitle{各年级相关工作}
+%   \begin{table}
+%   \resizebox{0.8\hsize}{!}{$
+%   \centering
+%   \begin{tabular}{|c|c|c|}
+%   \hline 
+%   年级&姓名&课题 \\  
+%   \hline
+%   &史珊珊&基于分形理论的浮游植物显微图像识别研究\\ \cline{2-3} 
+%   2009级&宋丽娜&基于多小波理论的浮游植物图像处理研究 \\ \cline{2-3}
+%   &郑海永&基于生物形态学的有害赤潮藻显微图像诊断研究\\
+%   \hline 
+%   &吕梁 &有害赤潮数据采集与诊断系统的设计与实现\\ \cline{2-3} 
+%   2010级&袁鹏&无角毛有害赤潮藻显微图像自动识别系统 \\ \cline{2-3}
+%   &乔小燕&基于生物形态学的赤潮藻显微图像分割与特征提取研究\\
+%   \hline
+%   &鲍珊娟 &基于分形方法的有害赤潮显微图像识别研究\\ \cline{2-3} 
+%   2011级&姜晓玲&基于变分水平集的赤潮藻显微图像分割方法研究 \\ \cline{2-3}
+%   &郭春锋&中国海常见有害赤潮藻显微图像识别研究\\
+%   \hline
+%   2012级&张寒清&有害赤潮藻显微图像自动识别研究 \\
+%   \hline
+%   2013级&楚晶晶&基于显著区域检测和分水岭的无角毛类藻显微图像分割研究 \\
+%   \hline
+%   \end{tabular}$} 
+%   \end{table}
+%\end{frame}
  
 \section{视觉显著性简介}
 
@@ -241,34 +233,95 @@
   \includegraphics[width=1in]{14.png}
   \caption{真值图}
   \end{minipage}
-  \end{figure} 
-  
+  \end{figure}   
 \end{frame}
 
 
-\begin{frame}
-  \frametitle{一般分类}
-  \begin{figure}[h]
-  \centering
-  \centerline{\includegraphics[width=4in]{流程图.jpg}}
-  \caption{基于视觉模型和任务驱动模型的研究流程比较}
-  \end{figure}
-\end{frame}
+%\begin{frame}
+%  \frametitle{一般分类}
+%  \begin{figure}[h]
+%  \centering
+%  \centerline{\includegraphics[width=4in]{流程图.jpg}}
+%  \caption{基于视觉模型和任务驱动模型的研究流程比较}
+%  \end{figure}
+%\end{frame}
 
 
 \subsection{为什么？}
 
 \begin{frame}
-  \frametitle{为什么？}
+  \begin{itemize}
+  \item 显著性检测在计算机视觉领域是一个非常热的话题
+  \item 研究视觉显著性是研究其他计算机视觉问题的基础
+  \end{itemize}
 \end{frame}
-
 
 \subsection{怎么做？}
 
+\subsubsection{代表性工作介绍}
+
 \begin{frame}
-  \frametitle{怎么做？}
+  \frametitle{启蒙：Itti1998模型---最早提出的视觉注意模型}
+  \begin{figure}[!ht]
+  \begin{minipage}[t]{0.45\textwidth}
+  \includegraphics[width=2in]{IttiIMG.jpg}
+  \caption{原图}
+  \end{minipage}
+  \begin{minipage}[t]{0.45\textwidth}
+  \includegraphics[width=2in]{IttiSM.png}
+  \caption{显著图}
+  \end{minipage}
+  \end{figure} 
 \end{frame}
 
+
+\begin{frame}
+  \frametitle{启蒙：Itti1998模型---最早提出的视觉注意模型}
+  \centering\includegraphics[width=2.5in]{model.png}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{分支形成：Learning to Detect A Salient Object，CVPR 2007}
+  \centering\includegraphics[width=4.5in]{MSRA.jpg}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{分支形成：Frequency-tuned Salient Region Detection，CVPR 2009}
+  \centering\includegraphics[width=3in]{FT.png}
+\end{frame}
+
+\subsubsection{我和师姐的工作}
+
+\begin{frame}
+  \frametitle{赵红苗的工作}
+  \centering\includegraphics[width=3.5in]{zhm.eps}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{我的工作}
+  \begin{figure}[!ht]
+  \begin{minipage}[t]{0.5\textwidth}
+  \includegraphics[width=2.5in]{PR_OTSU_1.2.png}
+  \end{minipage}
+  \begin{minipage}[t]{0.45\textwidth}
+  \includegraphics[width=2.5in]{PRF_OTSU_1.2.png}
+  \end{minipage}
+  \end{figure} 
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{科研计划}
+  \begin{enumerate}
+  \item 2014.10.01-2014.11.30：文献阅读，运行所有代码，寻找方向
+  \item 2014.12.01-2014.12.31：进行实验
+  \item 2014.01.01-2014.01.30：写论文并补充完善实验
+  \item 2014.02.01-2014.02.15：修改论文
+  \end{enumerate}
+\end{frame}
 
 
 \begin{frame}
@@ -283,3 +336,5 @@
   \end{flushright}  
 \end{frame}
 \end{document}
+
+
