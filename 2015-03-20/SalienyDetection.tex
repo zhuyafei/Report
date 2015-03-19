@@ -24,6 +24,11 @@
 \usepackage{fancybox}     %% 定义zhushadow时用到
 \newsavebox{\mysaveboxOne}  %%为了在only中使用lstlisting
 \newsavebox{\mysaveboxTwo}
+\newsavebox{\mysaveboxThree}
+\newsavebox{\mysaveboxFour}
+\newsavebox{\mysaveboxFive}
+\newsavebox{\mysaveboxSix}
+\newsavebox{\mysaveboxSeven}
 \newcommand\zhushadow[2][purple]{\hskip5pt\shadowbox{\color{#1}\small\kai #2\vspace{3mm}}}
 
 %%------------------------ThemeColorFont------------------------
@@ -132,18 +137,32 @@ Ocean University of China\\
 \begin{frame}[fragile]
   \frametitle{What?}
   \only<1>{
-  %\begin{center}
-  The eyes capture light which results in information in the order of $10^9$ bits every second.
+  A rich stream of visual data ($10^8-10^9$ bits) enters our eyes every second.\footnote{K. Koch and J. McLean, ``How much the eye tells the brain'', Current Biology, 2006. }
   \newline
   \usebox{\mysaveboxOne}
-  %\end{center}
   }
-
+  
   \only<2>{
+  \begin{center}
+  \includegraphics[width=0.9\linewidth]{visualInformation.jpeg}
+  \newline
+  \usebox{\mysaveboxTwo}
+  \end{center}}
+  
+   \only<3>{
+  \begin{center}
+  \begin{align}
+  1024 \times 768 \times 3 \times 8 = 18874368 bit\nonumber
+  \end{align}
+  \newline
+  \usebox{\mysaveboxThree}
+  \end{center}}
+  
+  \only<4>{
   \begin{center}
   \includegraphics[width=1\linewidth]{people}
   \newline
-  \usebox{\mysaveboxTwo}
+  \usebox{\mysaveboxFour}
   \end{center}}
 \end{frame}
 
@@ -164,12 +183,30 @@ Ocean University of China\\
 
 
 \begin{frame}
-\frametitle{Background}
+\frametitle{Visual Attention}
+\centering\includegraphics[width=10cm]{VisualAttention}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Origins}
 \begin{itemize}
 \item ``Feature Integration Theory'', Treisman \& Gelade, 1980.
 \item ``Guided Search Theory'', Wolfe \& Cave, 1989.
 \item ``Integrated Competition Theory'', Desimone \& Duncan, 1995.
 \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Origins}
+Koch and Ulman\footnote{C. Koch and S. Ullman, ``Shifts in selective visual attention: towards the underlying neural circuitry'', Human Neurobiology, 1985.} proposed a feed-forward model to combine features and introduced the concept of a saliency map which is a topographic map that represents conspicuousness of scene locations.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Basic Structure of Computational Models}
+\centering\includegraphics[width=10cm]{BasicStructure.jpg}
 \end{frame}
 
 
@@ -204,7 +241,62 @@ Fixation prediction models are constructed originally to understand human visual
 
 \begin{frame}
 \frametitle{Architecture}
-\centering\includegraphics[width=7cm]{model.png}
+\begin{figure}
+\includegraphics[width=10cm]{ITTImodel.png}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{General Procedure of fixation prediction models}
+\centering\includegraphics[width=10cm]{fixationArchitecture}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{How to evaluate fixation prediction models?}
+\centering\includegraphics[width=10cm]{evaluateFixationModel}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Salient Object Detection}
+\centering\includegraphics[width=7cm]{FT.png}
+\begin{itemize}
+\item Learning to detect a salient object. CVPR 2007, Tie Liu et al.
+\item Frequency-tuned salient region detection. CVPR 2009, Achanta et al.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Salient Object Detection}
+\begin{itemize}
+\item {\color{blue}\emph{Block-based}} vs. {\color{blue}\emph{Region-based analysis}}
+
+Blocks are usually adopted by many early approaches, while regions are increasingly popular with the development of superpixel algorithms.
+
+\item {\color{blue}\emph{Intrinsic cues}} vs. {\color{blue}\emph{Extrinsic cues}}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Salient Object Detection}
+Salient object detection is widely defined as capturing the uniqueness, distinctiveness, or rarity of a scene.
+
+\begin{textblock*}{10cm}(2cm,2cm)
+\rowcolors[]{1}{blue!20}{blue!10}
+\begin{tabular}{ccc}
+\multicolumn{3}{c}{Uniqueness}\\
+Local Contrast & Global Contrast & Multi-scale Contrast 
+\end{tabular}
+\end{textblock*}
+
+\begin{itemize}
+\item Pixel-based 
+\item Region-based
+\end{itemize}
 \end{frame}
 
 
@@ -236,121 +328,16 @@ The emergence of salient object detection models is driven by the requirement of
 
 
 \begin{frame}
-\frametitle{Representative Methods}
-\centering\includegraphics[width=7cm]{FT.png}
-\begin{itemize}
-\item Learning to detect a salient object. CVPR 2007, Tie Liu et al.
-\item Frequency-tuned salient region detection. CVPR 2009, Achanta et al.
-\end{itemize}
+\frametitle{What can saliency not do?}
+\centering\includegraphics[width=9cm]{challenge.JPG}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Differences and Commons}
-\begin{itemize}
-\item Differences
-\begin{itemize}
-\item Evaluation and Datasets
-\item Aims
-\item Accuracy requirement 
-\end{itemize}
-\item Commons
-\begin{itemize}
-\item Both of them generate similar saliency maps
-\end{itemize}
-\end{itemize}
-\end{frame}
+\frametitle{Latest research achievements}
+\centering\includegraphics[width=6cm]{latest}
 
-
-\begin{frame}
-\frametitle{Related Topics}
-\begin{itemize}
-\item Image Segmentation
-\item Object Proposal Generation
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Salient Object Detection}
-\begin{itemize}
-\item {\color{blue}\emph{Block-based}} vs. {\color{blue}\emph{Region-based analysis}}
-
-Blocks are usually adopted by many early approaches, while regions are increasingly popular with the development of superpixel algorithms.
-
-\item {\color{blue}\emph{Intrinsic cues}} vs. {\color{blue}\emph{Extrinsic cues}}
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Salient Object Detection}
-Salient object detection is widely defined as capturing the uniqueness, distinctiveness, or rarity of a scene.
-
-\begin{textblock*}{10cm}(2cm,2cm)
-\rowcolors[]{1}{blue!20}{blue!10}
-\begin{tabular}{ccc}
-\multicolumn{3}{c}{Uniqueness}\\
-Local Contrast & Global Contrast & Multi-scale Contrast 
-\end{tabular}
-\end{textblock*}
-
-\begin{itemize}
-\item Pixel-based
-\item Block-based 
-\item Region-based
-\end{itemize}
-\end{frame}
-
-
-\section{Color Space}
-
-
-\begin{frame}
-\frametitle{Definition}
-\begin{itemize}
-\item {\color{blue}\emph{Color}} is the visual perceptual property corresponding in humans to the categories called red, blue, yellow and others.
-\item {\color{blue}\emph{Color Space}} is defined to identify colors numerically by their coordinates.
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Three Elements of Color}
-\begin{itemize}
-\item Hue: What we think as ``color''--yellow, orange, cyan and magenta are examples of different hues
-\item Saturation: Saturation refers to the relative purity or the amount of white light mixed with a hue
-\item Intensity
-\end{itemize}
-\centering\includegraphics[width=6cm]{HSIColorModel.jpg}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Device-independent spaces}
-\begin{itemize}
-\item CIE XYZ
-\item CIELAB
-\item CIELUV
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Device-dependent spaces}
-\begin{itemize}
-\item RGB、CMYK
-\end{itemize}
-
-\centering\includegraphics[width=7cm]{RGB_CMYK.png}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Transformation}
-Almost all the color spaces can be transformed from RGB color space.
-
-\centering\includegraphics[width=8cm]{ColorSpaceTransform}
+  From left to right: PBS\footnote{Chuan Yang et al, ``Graph-regularized saliency detection with convex-hull-based center prior, IEEE Signal Processing Letters, 2013.}、DRFI\footnote{Huaizu Jiang et al, ``Salient object detection: a discriminative regional feature integration approach'', in CVPR, 2013.}、RBD\footnote{Wangjiang Zhu et al, ``Saliency optimization from robust background detection'', in CVPR, 2014.}、HDCT\footnote{Jiwhan Kim et al, ``Salient region detection via high-dimensional color transform'', in CVPR, 2014.}
 \end{frame}
 
 
@@ -373,6 +360,65 @@ An image feature is a general term but it usually means a part of an image that 
 \end{itemize}
 \end{column}
 \end{columns}\vspace{1ex}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Features}
+\begin{itemize}
+\item Color feature
+\item Texture feature
+\item Geometric features
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Color}
+\begin{itemize}
+\item {\color{blue}\emph{Color}} is the visual perceptual property corresponding in humans to the categories called red, blue, yellow and others.
+\item {\color{blue}\emph{Color Space}} is defined to identify colors numerically by their coordinates.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Three Elements of Color}
+\begin{itemize}
+\item Hue: What we think as ``color''--yellow, orange, cyan and magenta are examples of different hues
+\item Saturation: Saturation refers to the relative purity or the amount of white light mixed with a hue
+\item Intensity
+\end{itemize}
+\centering\includegraphics[width=6cm]{HSIColorModel.jpg}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Coding methods for humans}
+\begin{itemize}
+\item \textbf{RGB} is an additive system (add colors to black) used for displays.
+\item \textbf{CMY} is a subtractive system for printing.
+\item \textbf{HSI} is a good perceptual space for art, psychology, and recognition.
+\item \textbf{YIQ} is used for TV and is good for compression. 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Device-dependent spaces}
+\begin{itemize}
+\item RGB、CMYK
+\end{itemize}
+
+\centering\includegraphics[width=7cm]{RGB_CMYK.png}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Transformation}
+Almost all the color spaces can be transformed from RGB color space.
+
+\centering\includegraphics[width=8cm]{ColorSpaceTransform}
 \end{frame}
 
 
@@ -427,7 +473,7 @@ SIFT、、
 
 \begin{frame}
 \frametitle{What is texture?}
-Texture is actually a very nebulous concept, often attributed to human perception, as either the feel or the appearance of (woven) fabric.\footnote{Mark S.Nixon and Alberto S.Aguado, ``Feature Extraction \& Image Processing for Computer Vision''}
+Texture is actually a very nebulous concept, often attributed to human perception, as either the feel or the appearance of (woven) fabric.\footnote{Mark S.Nixon and Alberto S.Aguado, ``Feature Extraction \& Image Processing for Computer Vision'', Publishing House of Electronics Industry, 2013.}
 \end{frame}
 
 
@@ -620,6 +666,17 @@ E(S) & = \sum_{i}(S(i)-S_in(i))^2+\lambda \sum_{i, j}w_{ij}(S(i)-S(j))^2
 \end{frame}
 
 
+\section{Integration}
+
+\begin{frame}
+\frametitle{Optimization\footnote{Wangjiang Zhu and Shuang Liang, ``Saliency Optimization from Robust Background Detection, in CVPR, 2014.}}
+The ideal output of salient object detection is a clean binary object/background segmentation.
+
+\centering\includegraphics[width=6cm]{optimization}
+\end{frame}
+
+
+
 \begin{frame}
   \vspace{2cm}
   \centering
@@ -631,8 +688,6 @@ E(S) & = \sum_{i}(S(i)-S_in(i))^2+\lambda \sum_{i, j}w_{ij}(S(i)-S(j))^2
   \emph{2015.03}
   \end{flushright}  
 \end{frame}
-
-
 
 %===============================================================================
 
