@@ -93,14 +93,15 @@
 \logo{\includegraphics[scale=0.07]{ouc-logo.jpg}}
 \title{Saliency Detection}
 %\subtitle{Bottom-Up Saliency Detection Model Based on Human Visual Sensitivity and Amplitude Spectrum}
+\subtitle{显著性检测}
 \author[]{\textcolor{olive}{Zhu Yafei}}
 \institute[CVBIOUC]
 {
 \small\textcolor{violet}{CVBIOUC\\
-Ocean University of China\\
+%Ocean University of China\\
 \url{http://vision.ouc.edu.cn/~zhenghaiyong}}
 }
-\date[March 20, 2015]{March 20, 2015}
+\date[March 24, 2015]{March 24, 2015}
 %\titlegraphic{
 %\includegraphics[height=1.0cm]{ouc-logo.jpg}}
 \frame{ \titlepage }
@@ -144,7 +145,7 @@ Ocean University of China\\
   
   \only<2>{
   \begin{center}
-  \includegraphics[width=0.9\linewidth]{visualInformation.jpeg}
+  \includegraphics[width=1\linewidth]{tuxiang.png}
   \newline
   \usebox{\mysaveboxTwo}
   \end{center}}
@@ -152,7 +153,7 @@ Ocean University of China\\
    \only<3>{
   \begin{center}
   \begin{align}
-  1024 \times 768 \times 3 \times 8 = 18874368 bit\nonumber
+  500 \times 375 \times 3 \times 8 = 4500000 bit\nonumber
   \end{align}
   \newline
   \usebox{\mysaveboxThree}
@@ -169,6 +170,26 @@ Ocean University of China\\
 
 \begin{frame}
 \frametitle{What?}
+%\only<1>{
+%  \begin{center}
+%  \begin{figure}
+% \includegraphics[width=0.9\linewidth]{apple1}  
+% \caption{Bottom-Up}
+%  \newline
+%  \usebox{\mysaveboxOne}
+%  \end{figure}
+%  \end{center}}
+%  
+%  \only<2>{
+%  \begin{center}
+%  \begin{figure}
+%  \includegraphics[width=0.9\linewidth]{apple2}
+%  \caption{Top-Down}
+%  \newline
+%  \usebox{\mysaveboxTwo}
+%   \end{figure}
+%  \end{center}}
+
 \begin{figure}[!ht]
   \begin{minipage}[t]{0.46\textwidth}
   \includegraphics[width=1.8in]{apple1}
@@ -200,7 +221,7 @@ Ocean University of China\\
 
 \begin{frame}
 \frametitle{Origins}
-Koch and Ulman\footnote{C. Koch and S. Ullman, ``Shifts in selective visual attention: towards the underlying neural circuitry'', Human Neurobiology, 1985.} proposed a feed-forward model to combine features and introduced the concept of a saliency map which is a topographic map that represents conspicuousness of scene locations.
+Koch and Ullman\footnote{C. Koch and S. Ullman, ``Shifts in selective visual attention: towards the underlying neural circuitry'', Human Neurobiology, 1985.} proposed a feed-forward model to combine features and introduced the concept of a saliency map which is a topographic map that represents conspicuousness of scene locations.
 \end{frame}
 
 
@@ -269,35 +290,23 @@ Fixation prediction models are constructed originally to understand human visual
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Salient Object Detection}
-\begin{itemize}
-\item {\color{blue}\emph{Block-based}} vs. {\color{blue}\emph{Region-based analysis}}
-
-Blocks are usually adopted by many early approaches, while regions are increasingly popular with the development of superpixel algorithms.
-
-\item {\color{blue}\emph{Intrinsic cues}} vs. {\color{blue}\emph{Extrinsic cues}}
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Salient Object Detection}
-Salient object detection is widely defined as capturing the uniqueness, distinctiveness, or rarity of a scene.
-
-\begin{textblock*}{10cm}(2cm,2cm)
-\rowcolors[]{1}{blue!20}{blue!10}
-\begin{tabular}{ccc}
-\multicolumn{3}{c}{Uniqueness}\\
-Local Contrast & Global Contrast & Multi-scale Contrast 
-\end{tabular}
-\end{textblock*}
-
-\begin{itemize}
-\item Pixel-based 
-\item Region-based
-\end{itemize}
-\end{frame}
+%\begin{frame}
+%\frametitle{Salient Object Detection}
+%Salient object detection is widely defined as capturing the uniqueness, distinctiveness, or rarity of a scene.
+%
+%\begin{textblock*}{10cm}(2cm,2cm)
+%\rowcolors[]{1}{blue!20}{blue!10}
+%\begin{tabular}{ccc}
+%\multicolumn{3}{c}{Uniqueness}\\
+%Local Contrast & Global Contrast & Multi-scale Contrast 
+%\end{tabular}
+%\end{textblock*}
+%
+%\begin{itemize}
+%\item Pixel-based 
+%\item Region-based
+%\end{itemize}
+%\end{frame}
 
 
 \begin{frame}
@@ -337,38 +346,92 @@ The emergence of salient object detection models is driven by the requirement of
 \frametitle{Latest research achievements}
 \centering\includegraphics[width=6cm]{latest}
 
-  From left to right: PBS\footnote{Chuan Yang et al, ``Graph-regularized saliency detection with convex-hull-based center prior, IEEE Signal Processing Letters, 2013.}、DRFI\footnote{Huaizu Jiang et al, ``Salient object detection: a discriminative regional feature integration approach'', in CVPR, 2013.}、RBD\footnote{Wangjiang Zhu et al, ``Saliency optimization from robust background detection'', in CVPR, 2014.}、HDCT\footnote{Jiwhan Kim et al, ``Salient region detection via high-dimensional color transform'', in CVPR, 2014.}
+  From left to right: PBS\footnote{Chuan Yang et al., ``Graph-regularized saliency detection with convex-hull-based center prior, IEEE Signal Processing Letters, 2013.}、DRFI\footnote{Huaizu Jiang et al., ``Salient object detection: a discriminative regional feature integration approach'', in CVPR, 2013.}、RBD\footnote{Wangjiang Zhu et al., ``Saliency optimization from robust background detection'', in CVPR, 2014.}、HDCT\footnote{Jiwhan Kim et al., ``Salient region detection via high-dimensional color transform'', in CVPR, 2014.}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{General Procedure}
+\centering\includegraphics[width=4cm]{flowchart.png}
 \end{frame}
 
 
 \section{Features}
 
 \begin{frame}
-\frametitle{What are features?}
-An image feature is a general term but it usually means a part of an image that contains interesting details or a property of the image which we are interested in.
-\begin{columns}
-\begin{column}{\leftmargini}
-\end{column}
-\begin{column}{0.5\linewidth}
-\centering\includegraphics[width=4cm]{image}
-\end{column}
-\begin{column}{0.7\linewidth}
+\frametitle{Features}
+Salient object detection: A discriminative regional feature integration approach, CVPR 2013
 \begin{itemize}
-\item Edges
-\item Points
-\item Regions
+\item 26维颜色纹理等对比度特征
+
+\includegraphics[width=8cm]{ContrastFeature.png}
+\item 34维的区域特征
+
+\includegraphics[width=8cm]{RegionProperty.png}
 \end{itemize}
-\end{column}
-\end{columns}\vspace{1ex}
 \end{frame}
+
+
+%\begin{frame}
+%\frametitle{What are features?}
+%An image feature is a general term but it usually means a part of an image that contains interesting details or a property of the image which we are interested in.
+%\begin{columns}
+%\begin{column}{\leftmargini}
+%\end{column}
+%\begin{column}{0.5\linewidth}
+%\centering\includegraphics[width=4cm]{image}
+%\end{column}
+%\begin{column}{0.7\linewidth}
+%\begin{itemize}
+%\item Edges
+%\item Points
+%\item Regions
+%\end{itemize}
+%\end{column}
+%\end{columns}\vspace{1ex}
+%\end{frame}
+
+
+%\begin{frame}
+%\frametitle{Features}
+%\begin{itemize}
+%\item Contrast 
+%\begin{itemize}
+%\item Pixel-based $U_p(x) = \sum_{x'\in I\textbackslash \{ x\}}D(x', x)$
+%\item Region-based $U_r(A_i) = \sum_{1\le k \le N, k \ne i}|\Lambda|D(\Lambda_k, \Lambda_i)$
+%\end{itemize}
+%\item Property
+%\begin{itemize}
+%\item Pixel-based: Geometric features
+%\item Region-based: Geometric features、Appearance features
+%\end{itemize}
+%\end{itemize}
+%\end{frame}
 
 
 \begin{frame}
 \frametitle{Features}
 \begin{itemize}
-\item Color feature
-\item Texture feature
-\item Geometric features
+\item Pixel-based
+\begin{itemize}
+\item Contrast: $U_p(x) = \sum_{x'\in I\textbackslash \{ x\}}D(x', x)$
+\item Property: Geometric features、Frequency
+\end{itemize}
+\item Patch/Region/Superpixel-based
+\begin{itemize}
+\item Contrast: $U_r(A_i) = \sum_{1\le k \le N, k \ne i}|\Lambda|D(\Lambda_k, \Lambda_i)$
+\item Property: Geometric features、Appearance features
+\end{itemize}
+\item Multi-scale based
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Contrast}
+\begin{itemize}
+\item Color
+\item Texture
 \end{itemize}
 \end{frame}
 
@@ -423,52 +486,64 @@ Almost all the color spaces can be transformed from RGB color space.
 
 
 \begin{frame}
-\frametitle{Edges}
-Edges are points that are at the boundary of two image regions and are detected by computing the change in brightness.
-
-\centering\includegraphics[width=8cm]{edge}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Corners/interest points}
-A corner is the point located at the intersection of two edges and you can think of an interest point as a small region in the image(window) for which no matter in which neighboring direction you look there is a high variations in brightness.
-
-\centering\includegraphics[width=5cm]{corner}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Blobs/regions of interest}
-Blobs, or regions of interest, are regions where the brightness or color of the points change very little so they can be considered in some sense to be similar to each other.
-
-\centering\includegraphics[width=6cm]{blob}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{\emph{feature} vs \emph{feature descriptor}}
-\begin{description}
-\item[Feature detection] A low-level image processing operation and it examines every pixel to see if the region around that pixel could be used as a feature.
-\item[Feature description] Once the features that are interesting to us have been detected, they can be extracted. The result is known as a feature descriptor or feature vector and they characterize the region around the key point.
-\end{description}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Feature Descriptor}
+\frametitle{Color Histogram}
 \begin{itemize}
-\item Invariance
-\item Distinguishability
+\item 对图像的颜色空间进行量化
+\item 计算矩阵Q
+\item 超像素分割
+\item 对每个超像素区域，依据其中像素点的坐标值，求出对应的矩阵Q中的值
+\item 求区域之间的直方图的对比度
 \end{itemize}
-SIFT、、
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Steps}
-\centering\includegraphics[width=10cm]{steps}
-\end{frame}
+%\begin{frame}
+%\frametitle{Edges}
+%Edges are points that are at the boundary of two image regions and are detected by computing the change in brightness.
+%
+%\centering\includegraphics[width=8cm]{edge}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{Corners/interest points}
+%A corner is the point located at the intersection of two edges and you can think of an interest point as a small region in the image(window) for which no matter in which neighboring direction you look there is a high variations in brightness.
+%
+%\centering\includegraphics[width=5cm]{corner}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{Blobs/regions of interest}
+%Blobs, or regions of interest, are regions where the brightness or color of the points change very little so they can be considered in some sense to be similar to each other.
+%
+%\centering\includegraphics[width=6cm]{blob}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\emph{feature} vs \emph{feature descriptor}}
+%\begin{description}
+%\item[Feature detection] A low-level image processing operation and it examines every pixel to see if the region around that pixel could be used as a feature.
+%\item[Feature description] Once the features that are interesting to us have been detected, they can be extracted. The result is known as a feature descriptor or feature vector and they characterize the region around the key point.
+%\end{description}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{Feature Descriptor}
+%\begin{itemize}
+%\item Invariance
+%\item Distinguishability
+%\end{itemize}
+%SIFT、、
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{Steps}
+%\centering\includegraphics[width=10cm]{steps}
+%\end{frame}
 
 
 \begin{frame}
@@ -510,15 +585,19 @@ Texture is actually a very nebulous concept, often attributed to human perceptio
 \begin{frame}
 \frametitle{Regional property descriptor}
 \begin{itemize}
-\item Appearance feature descriptor
-\item Geometric feature descriptor
+\item Geometric feature descriptor 
+\begin{itemize}
+\item size
+\item perimeter
+\item position
+\item area of the neighbor regions
 \end{itemize}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Regional contrast descriptor}
-
+\item Appearance feature descriptor
+\begin{itemize}
+\item the variances of the RGB values
+\item the variances of the response of the LM filters
+\end{itemize}
+\end{itemize}
 \end{frame}
 
 
@@ -660,21 +739,39 @@ E(S) & = \sum_{i}(S(i)-S_in(i))^2+\lambda \sum_{i, j}w_{ij}(S(i)-S(j))^2
 
 
 \begin{frame}
-\frametitle{SDSP\footnote{Zhang, Lin and Gu, Zhongyi and Li, Hongyu, ``SDSP: A novel saliency detection method by combining simple priors'', in ICIP, 2013.}}
+\frametitle{Example: SDSP\footnote{Zhang, Lin and Gu, Zhongyi and Li, Hongyu, ``SDSP: A novel saliency detection method by combining simple priors'', in ICIP, 2013.}}
 
 \centering\includegraphics[width=5.7cm]{SDSP}
 \end{frame}
 
 
-\section{Integration}
+\section{Aggregation}
 
 \begin{frame}
-\frametitle{Optimization\footnote{Wangjiang Zhu and Shuang Liang, ``Saliency Optimization from Robust Background Detection, in CVPR, 2014.}}
+\frametitle{Non-linear\footnote{Peng Jiang et al., ``Salient region detection by ufo: Uniqueness, focusness and objectness'', in ICCV, 2013. }}
+Combining the focusness, the objectness and the uniqueness maps:
+\begin{align}
+S = exp( F + U) \times O
+\end{align}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Energy minization\footnote{Wangjiang Zhu and Shuang Liang, ``Saliency Optimization from Robust Background Detection‘’, in CVPR, 2014.}}
 The ideal output of salient object detection is a clean binary object/background segmentation.
 
 \centering\includegraphics[width=6cm]{optimization}
 \end{frame}
 
+
+\begin{frame}
+\frametitle{Machine Learning\footnote{Huaizu Jiang et al., ``Salient object detection: a discriminative regional feature integration approach'', in CVPR, 2013.}}
+Training examples: 
+\begin{itemize}
+\item a set of confident regions $R = \{ R_1, R_2, \ldots, R_Q\}$
+\item the responding saliency scores $A = \{a_1, a_2, \ldots, a_Q\}$
+\end{itemize}
+\end{frame}
 
 
 \begin{frame}
